@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn Git & GitHub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1><span>&#x1f4bb;</span> Git & GitHub Guide</h1>
+    <nav>
+      <a href="#git">Git</a>
+      <a href="#github">GitHub</a>
+      <a href="#branches">Branches</a>
+      <a href="#pull">Pull Requests</a>
+      <a href="#stash">Stash</a>
+    </nav>
+  </header>
+
+  <section id="git">
+    <h2>🧠 What is Git?</h2>
+    <p>Git is a distributed version control system that tracks changes in source code during software development.</p>
+    <p>It allows multiple developers to work on the same codebase without overwriting each other's changes.</p>
+    <div class="code">
+      <pre><code>git init
+git add .
+git commit -m "Initial commit"</code></pre>
+    </div>
+  </section>
+
+  <section id="github">
+    <h2>🌐 What is GitHub?</h2>
+    <p>GitHub is a web-based platform built on top of Git. It allows teams to collaborate on code by hosting
+      repositories in the cloud.</p>
+    <p>It adds features like pull requests, issues, project boards, and CI/CD integrations.</p>
+  </section>
+
+  <section id="branches">
+    <h2>🌿 Git Branches</h2>
+    <p>Branches allow you to diverge from the main codebase and work independently.</p>
+    <div class="code">
+      <pre><code>git branch feature-x
+git checkout feature-x
+# or simply:
+git checkout -b feature-x</code></pre>
+    </div>
+    <p>Once your feature is ready, you can merge it into the main branch:</p>
+    <div class="code">
+      <pre><code>git checkout main
+git merge feature-x</code></pre>
+    </div>
+  </section>
+
+  <section id="pull">
+    <h2>📤 Pull Requests</h2>
+    <p>A Pull Request (PR) lets you propose changes to a repository. You can review, comment, and approve changes before
+      merging.</p>
+    <p>Steps:</p>
+    <ol>
+      <li>Fork the repo</li>
+      <li>Create a branch</li>
+      <li>Push your changes</li>
+      <li>Create a PR on GitHub</li>
+    </ol>
+  </section>
+
+  <section id="stash">
+    <h2>📦 Git Stash</h2>
+    <p>Stash temporarily shelves changes you’re not ready to commit.</p>
+    <div class="code">
+      <pre><code>git stash
+git pull origin main
+git stash apply</code></pre>
+    </div>
+  </section>
+
+  <section id="problems">
+    <h2>🧯 Common Git & GitHub Problems + Fixes</h2>
+
+    <h3>1. ❌ Accidentally Committed the Wrong File</h3>
+    <p><strong>Problem:</strong> You committed a large file or secret key.</p>
+    <p><strong>Fix:</strong></p>
+    <div class="code">
+      <pre><code>git reset HEAD~1
+# unstages the last commit but keeps changes
+
+# or delete file and recommit
+rm secret.txt
+git add .
+git commit -m "remove secret"</code></pre>
+    </div>
+
+    <h3>2. 🔄 Merge Conflicts</h3>
+    <p><strong>Problem:</strong> Git can't auto-merge files when two branches change the same lines.</p>
+    <p><strong>Fix:</strong> Open the conflicted file. Git will show markers like:</p>
+    <div class="code">
+      <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Your changes
+=======
+Their changes
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name</code></pre>
+    </div>
+    <p>Manually fix, then:</p>
+    <div class="code">
+      <pre><code>git add .
+git commit</code></pre>
+    </div>
+
+    <h3>3. 🔁 Pushed to the Wrong Branch</h3>
+    <p><strong>Problem:</strong> You accidentally pushed to <code>main</code> instead of a feature branch.</p>
+    <p><strong>Fix:</strong></p>
+    <div class="code">
+      <pre><code>git checkout -b correct-branch
+git push origin correct-branch
+
+# (optional) revert main if needed:
+git checkout main
+git revert HEAD</code></pre>
+    </div>
+
+    <h3>4. 📦 Forgot to Pull Before Push</h3>
+    <p><strong>Problem:</strong> Push is rejected because your local branch is behind.</p>
+    <p><strong>Fix:</strong></p>
+    <div class="code">
+      <pre><code>git pull --rebase origin main
+# then push again:
+git push origin main</code></pre>
+    </div>
+
+    <h3>5. 🧨 Detached HEAD</h3>
+    <p><strong>Problem:</strong> You checked out a specific commit and now you're in a detached state.</p>
+    <p><strong>Fix:</strong></p>
+    <div class="code">
+      <pre><code>git checkout -b new-branch</code></pre>
+    </div>
+
+    <h3>6. 🔐 GitHub Authentication Issues</h3>
+    <p><strong>Problem:</strong> GitHub rejects your push due to authentication or token issues.</p>
+    <p><strong>Fix:</strong></p>
+    <ul>
+      <li>Use a Personal Access Token (PAT) instead of a password.</li>
+      <li>Configure GitHub CLI or SSH keys.</li>
+    </ul>
+    <div class="code">
+      <pre><code>git remote set-url origin https://TOKEN@github.com/username/repo.git</code></pre>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>⚙️ Built with HTML & CSS | <a target="_blank" href="https://www.linkedin.com/in/prince-owire-841187250">Prince
+        Owire</a> | © 2025</p>
+  </footer>
+</body>
+
+</html>
