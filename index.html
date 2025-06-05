@@ -54,6 +54,37 @@ git merge feature-x</code></pre>
     </div>
   </section>
 
+  <section id="clone">
+    <h2>🧬 Cloning a Repository</h2>
+    <p><strong>Cloning</strong> means copying a GitHub repository to your local machine.</p>
+    <div class="code">
+      <pre><code>git clone https://github.com/username/repo.git</code></pre>
+    </div>
+    <p>This creates a folder with all the repo's code and history.</p>
+  </section>
+
+  <section id="push-pull">
+    <h2>🔁 Push vs Pull</h2>
+
+    <h3>📤 git push</h3>
+    <p><strong>Push</strong> sends your local commits to the remote repository (usually GitHub).</p>
+    <div class="code">
+      <pre><code>git push origin main</code></pre>
+    </div>
+    <p>This command uploads your latest commits to the <code>main</code> branch on GitHub.</p>
+
+    <h3>📥 git pull</h3>
+    <p><strong>Pull</strong> fetches new commits from the remote repository and merges them into your local branch.</p>
+    <div class="code">
+      <pre><code>git pull origin main</code></pre>
+    </div>
+    <p>It’s a combination of <code>git fetch</code> and <code>git merge</code>.</p>
+
+    <div class="tip">
+      <strong>💡 Tip:</strong> Always pull before pushing to avoid conflicts!
+    </div>
+  </section>
+
   <section id="pull">
     <h2>📤 Pull Requests</h2>
     <p>A Pull Request (PR) lets you propose changes to a repository. You can review, comment, and approve changes before
@@ -66,66 +97,37 @@ git merge feature-x</code></pre>
       <li>Create a PR on GitHub</li>
     </ol>
   </section>
-  
-<section id="push-pull">
-  <h2>🔁 Push vs Pull</h2>
 
-  <h3>📤 git push</h3>
-  <p><strong>Push</strong> sends your local commits to the remote repository (usually GitHub).</p>
-  <div class="code">
-    <pre><code>git push origin main</code></pre>
-  </div>
-  <p>This command uploads your latest commits to the <code>main</code> branch on GitHub.</p>
-
-  <h3>📥 git pull</h3>
-  <p><strong>Pull</strong> fetches new commits from the remote repository and merges them into your local branch.</p>
-  <div class="code">
-    <pre><code>git pull origin main</code></pre>
-  </div>
-  <p>It’s a combination of <code>git fetch</code> and <code>git merge</code>.</p>
-
-  <div class="tip">
-    <strong>💡 Tip:</strong> Always pull before pushing to avoid conflicts!
-  </div>
-</section>
-
-<section id="clone">
-  <h2>🧬 Cloning a Repository</h2>
-  <p><strong>Cloning</strong> means copying a GitHub repository to your local machine.</p>
-  <div class="code">
-    <pre><code>git clone https://github.com/username/repo.git</code></pre>
-  </div>
-  <p>This creates a folder with all the repo's code and history.</p>
-</section>
-
-<section id="merge">
-  <h2>🌱 Merging Branches</h2>
-  <p><strong>Merging</strong> combines changes from one branch into another, usually a feature branch into <code>main</code>.</p>
-  <div class="code">
-    <pre><code>git checkout main
+  <section id="merge">
+    <h2>🌱 Merging Branches</h2>
+    <p><strong>Merging</strong> combines changes from one branch into another, usually a feature branch into
+      <code>main</code>.</p>
+    <div class="code">
+      <pre><code>git checkout main
 git merge feature-branch</code></pre>
-  </div>
-  <p>If there are no conflicts, the branches are merged automatically.</p>
+    </div>
+    <p>If there are no conflicts, the branches are merged automatically.</p>
 
-  <div class="tip">
-    <strong>💡 Best Practice:</strong> Always test your feature branch before merging!
-  </div>
-</section>
+    <div class="tip">
+      <strong>💡 Best Practice:</strong> Always test your feature branch before merging!
+    </div>
+  </section>
 
-<section id="revert-pr">
-  <h2>⏪ Reverting a Pull Request</h2>
-  <p>Sometimes a pull request (PR) is merged but later causes bugs. You can revert it.</p>
+  <section id="revert-pr">
+    <h2>⏪ Reverting a Pull Request</h2>
+    <p>Sometimes a pull request (PR) is merged but later causes bugs. You can revert it.</p>
 
-  <h3>🔧 Method 1: Use GitHub Revert Button</h3>
-  <p>Go to the merged pull request page and click <code>Revert</code>. GitHub creates a new PR to undo the changes.</p>
+    <h3>🔧 Method 1: Use GitHub Revert Button</h3>
+    <p>Go to the merged pull request page and click <code>Revert</code>. GitHub creates a new PR to undo the changes.
+    </p>
 
-  <h3>🔧 Method 2: Manual Revert in Git</h3>
-  <p>Find the PR merge commit hash, then run:</p>
-  <div class="code">
-    <pre><code>git revert COMMIT_HASH</code></pre>
-  </div>
-  <p>This undoes the PR changes by creating a new reverse commit.</p>
-</section>
+    <h3>🔧 Method 2: Manual Revert in Git</h3>
+    <p>Find the PR merge commit hash, then run:</p>
+    <div class="code">
+      <pre><code>git revert COMMIT_HASH</code></pre>
+    </div>
+    <p>This undoes the PR changes by creating a new reverse commit.</p>
+  </section>
 
 
   <section id="stash">
